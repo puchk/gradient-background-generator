@@ -4,10 +4,12 @@ var backgroundText = document.querySelector("#backgroundText");
 var body = document.body;
 var randomButton = document.querySelector("#randomButton");
 
+setGradient();
 
 function setGradient() {
  body.style.background = `linear-gradient(to right,${color1.value},${color2.value})`;
- backgroundText.textContent = body.style.background;
+ // backgroundText.textContent = body.style.background;
+ backgroundText.textContent = `linear-gradient(to right,${color1.value},${color2.value})`;
 }
 
 color1.addEventListener("input", setGradient);
@@ -23,8 +25,11 @@ function randomColor() {
 }
 
 function getRandomColors() {
-	body.style.background = `linear-gradient(to right,${randomColor()}, ${randomColor()})`;
-	backgroundText.textContent = body.style.background;
+	var random1 = randomColor();
+	var random2 = randomColor();
+	body.style.background = `linear-gradient(to right,${random1}, ${random2})`;
+	// backgroundText.textContent = body.style.background;
+	backgroundText.textContent = `linear-gradient(to right,${random1}, ${random2})`;
 }
 
 randomButton.addEventListener("click", getRandomColors);
